@@ -87,16 +87,13 @@ export default class AddService extends Command {
       throw new Error(`Unknown service: ${serviceName}`);
     }
 
-    // This would implement the actual service scaffolding logic
-    // For now, just log what would be done
-    console.log(`Scaffolding ${serviceName} service...`);
-    
-    // In a real implementation, this would:
-    // 1. Create the service module
-    // 2. Add the service to the app module
-    // 3. Update environment variables
-    // 4. Add necessary dependencies
-    // 5. Create example usage
+    // Generate service modules
+    const { ServiceGenerator } = await import('../lib/services/service-generator');
+    await ServiceGenerator.generateModules([serviceName]);
+
+    // Update environment variables
+    const { EnvWriter } = await import('../lib/writer/env-writer');
+    await EnvWriter.updateServiceVariables([serviceName]);
   }
 
   private logSuccess(services: string[]): void {

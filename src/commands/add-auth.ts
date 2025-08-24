@@ -87,15 +87,13 @@ export default class AddAuth extends Command {
       throw new Error(`Unknown provider: ${providerName}`);
     }
 
-    // This would implement the actual provider enabling logic
-    // For now, just log what would be done
-    console.log(`Enabling ${providerName} authentication...`);
-    
-    // In a real implementation, this would:
-    // 1. Update the auth module configuration
-    // 2. Add the provider strategy
-    // 3. Update environment variables
-    // 4. Add necessary dependencies
+    // Configure the provider
+    const { AuthConfigurator } = await import('../lib/auth/auth-configurator');
+    await AuthConfigurator.configureProviders([provider]);
+
+    // Update environment variables
+    const { EnvWriter } = await import('../lib/writer/env-writer');
+    await EnvWriter.updateAuthVariables([provider]);
   }
 
   private logSuccess(providers: string[]): void {

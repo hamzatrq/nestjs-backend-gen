@@ -144,27 +144,23 @@ updatedAt:datetime@default(now())`,
   }
 
   private async generatePrismaModel(entity: CrudEntity): Promise<void> {
-    // This would generate the Prisma model definition
-    // Implementation would be in a separate PrismaModelWriter class
-    console.log(`Generating Prisma model for ${entity.name}...`);
+    const { PrismaModelWriter } = await import('../lib/prisma/model-writer');
+    await PrismaModelWriter.generateModel(entity);
   }
 
   private async generateNestJSFiles(entity: CrudEntity): Promise<void> {
-    // This would generate all NestJS files (controller, service, repository, DTOs, etc.)
-    // Implementation would be in separate writer classes
-    console.log(`Generating NestJS files for ${entity.name}...`);
+    const { NestJSFileWriter } = await import('../lib/writer/nestjs-writer');
+    await NestJSFileWriter.generateFiles(entity);
   }
 
   private async generateTests(entity: CrudEntity): Promise<void> {
-    // This would generate test files
-    // Implementation would be in a separate TestWriter class
-    console.log(`Generating tests for ${entity.name}...`);
+    const { TestWriter } = await import('../lib/writer/test-writer');
+    await TestWriter.generateTests(entity);
   }
 
   private async updatePrismaSchema(entity: CrudEntity): Promise<void> {
-    // This would update the Prisma schema and run migrations
-    // Implementation would be in a separate PrismaSchemaWriter class
-    console.log(`Updating Prisma schema for ${entity.name}...`);
+    const { PrismaSchemaWriter } = await import('../lib/prisma/schema-writer');
+    await PrismaSchemaWriter.updateSchema(entity);
   }
 
   private logSuccess(entityName: string): void {
