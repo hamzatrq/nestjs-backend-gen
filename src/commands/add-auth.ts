@@ -8,9 +8,9 @@ export default class AddAuth extends Command {
   static override description = 'Enable authentication providers';
 
   static override examples = [
-    '$ nxg add auth',
-    '$ nxg add auth --provider google',
-    '$ nxg add auth --provider google,microsoft,github'
+    '$ backend-generator add auth',
+    '$ backend-generator add auth --provider google',
+    '$ backend-generator add auth --provider google,microsoft,github'
   ];
 
   static override flags = {

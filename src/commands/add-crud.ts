@@ -10,9 +10,9 @@ export default class AddCrud extends Command {
   static override description = 'Generate CRUD operations for entities';
 
   static override examples = [
-    '$ nxg add crud',
-    '$ nxg add crud --entity User',
-    '$ nxg add crud --spec entities.json'
+    '$ backend-generator add crud',
+    '$ backend-generator add crud --entity User',
+    '$ backend-generator add crud --spec entities.json'
   ];
 
   static override flags = {

@@ -13,9 +13,9 @@ export default class Init extends Command {
   static override description = 'Generate a new NestJS project';
 
   static override examples = [
-    '$ nxg init',
-    '$ nxg init --name my-app',
-    '$ nxg init --name my-app --api-base /api/v1'
+    '$ backend-generator init',
+    '$ backend-generator init --name my-app',
+    '$ backend-generator init --name my-app --api-base /api/v1'
   ];
 
   static override flags = {

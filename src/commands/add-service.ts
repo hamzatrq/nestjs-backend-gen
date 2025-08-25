@@ -8,9 +8,9 @@ export default class AddService extends Command {
   static override description = 'Scaffold optional services';
 
   static override examples = [
-    '$ nxg add service',
-    '$ nxg add service --service email',
-    '$ nxg add service --service email,cache,storage'
+    '$ backend-generator add service',
+    '$ backend-generator add service --service email',
+    '$ backend-generator add service --service email,cache,storage'
   ];
 
   static override flags = {

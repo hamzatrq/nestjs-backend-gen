@@ -9,9 +9,9 @@ export default class Doctor extends Command {
   static override description = 'Validate project setup and environment';
 
   static override examples = [
-    '$ nxg doctor',
-    '$ nxg doctor --check-db',
-    '$ nxg doctor --check-migrations'
+    '$ backend-generator doctor',
+    '$ backend-generator doctor --check-db',
+    '$ backend-generator doctor --check-migrations'
   ];
 
   async run(): Promise<void> {
