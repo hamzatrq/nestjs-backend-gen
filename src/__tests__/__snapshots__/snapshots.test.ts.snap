@@ -1,0 +1,1005 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Tests DSL Parsing Snapshots should parse Post entity with relationships consistently 1`] = `
+{
+  "abacPolicies": [
+    {
+      "action": "create",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('post_creator')",
+      ],
+      "resource": "post",
+    },
+    {
+      "action": "read",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('post_reader') || resource.createdBy === user.id",
+      ],
+      "resource": "post",
+    },
+    {
+      "action": "update",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('post_updater') || resource.createdBy === user.id",
+      ],
+      "resource": "post",
+    },
+    {
+      "action": "delete",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('post_deleter') || resource.createdBy === user.id",
+      ],
+      "resource": "post",
+    },
+    {
+      "action": "list",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('post_reader')",
+      ],
+      "resource": "post",
+    },
+  ],
+  "auditing": true,
+  "fields": [
+    {
+      "defaultValue": "cuid()",
+      "isId": true,
+      "name": "id",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "uuid",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "title",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "content",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "text",
+      "unique": false,
+    },
+    {
+      "defaultValue": "false",
+      "isId": false,
+      "name": "published",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "boolean",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "publishedAt",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "authorId",
+      "optional": false,
+      "relationTarget": "User",
+      "relationType": "many-to-one",
+      "type": "uuid",
+      "unique": false,
+    },
+    {
+      "defaultValue": "now()",
+      "isId": false,
+      "name": "createdAt",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+    {
+      "defaultValue": "now()",
+      "isId": false,
+      "name": "updatedAt",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "deletedAt",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+  ],
+  "name": "Post",
+  "relationships": [
+    {
+      "name": "author",
+      "optional": false,
+      "targetEntity": "User",
+      "type": "many-to-one",
+    },
+  ],
+  "softDelete": false,
+}
+`;
+
+exports[`Snapshot Tests DSL Parsing Snapshots should parse User entity DSL consistently 1`] = `
+{
+  "abacPolicies": [
+    {
+      "action": "create",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('user_creator')",
+      ],
+      "resource": "user",
+    },
+    {
+      "action": "read",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('user_reader') || resource.createdBy === user.id",
+      ],
+      "resource": "user",
+    },
+    {
+      "action": "update",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('user_updater') || resource.createdBy === user.id",
+      ],
+      "resource": "user",
+    },
+    {
+      "action": "delete",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('user_deleter') || resource.createdBy === user.id",
+      ],
+      "resource": "user",
+    },
+    {
+      "action": "list",
+      "conditions": [
+        "user.roles.includes('admin') || user.roles.includes('user_reader')",
+      ],
+      "resource": "user",
+    },
+  ],
+  "auditing": true,
+  "fields": [
+    {
+      "defaultValue": "cuid()",
+      "isId": true,
+      "name": "id",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "uuid",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "email",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": true,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "name",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "password",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "avatar",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": false,
+    },
+    {
+      "defaultValue": "local",
+      "isId": false,
+      "name": "provider",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "providerId",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "string",
+      "unique": false,
+    },
+    {
+      "defaultValue": "now()",
+      "isId": false,
+      "name": "createdAt",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+    {
+      "defaultValue": "now()",
+      "isId": false,
+      "name": "updatedAt",
+      "optional": false,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+    {
+      "defaultValue": undefined,
+      "isId": false,
+      "name": "deletedAt",
+      "optional": true,
+      "relationTarget": undefined,
+      "relationType": undefined,
+      "type": "datetime",
+      "unique": false,
+    },
+  ],
+  "name": "User",
+  "relationships": [],
+  "softDelete": false,
+}
+`;
+
+exports[`Snapshot Tests DSL Parsing Snapshots should parse multiple entities consistently 1`] = `
+[
+  {
+    "abacPolicies": [
+      {
+        "action": "create",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('user_creator')",
+        ],
+        "resource": "user",
+      },
+      {
+        "action": "read",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('user_reader') || resource.createdBy === user.id",
+        ],
+        "resource": "user",
+      },
+      {
+        "action": "update",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('user_updater') || resource.createdBy === user.id",
+        ],
+        "resource": "user",
+      },
+      {
+        "action": "delete",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('user_deleter') || resource.createdBy === user.id",
+        ],
+        "resource": "user",
+      },
+      {
+        "action": "list",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('user_reader')",
+        ],
+        "resource": "user",
+      },
+    ],
+    "auditing": true,
+    "fields": [
+      {
+        "defaultValue": "cuid()",
+        "isId": true,
+        "name": "id",
+        "optional": false,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "uuid",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "email",
+        "optional": false,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "string",
+        "unique": true,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "name",
+        "optional": true,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "string",
+        "unique": false,
+      },
+    ],
+    "name": "User",
+    "relationships": [],
+    "softDelete": false,
+  },
+  {
+    "abacPolicies": [
+      {
+        "action": "create",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('post_creator')",
+        ],
+        "resource": "post",
+      },
+      {
+        "action": "read",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('post_reader') || resource.createdBy === user.id",
+        ],
+        "resource": "post",
+      },
+      {
+        "action": "update",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('post_updater') || resource.createdBy === user.id",
+        ],
+        "resource": "post",
+      },
+      {
+        "action": "delete",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('post_deleter') || resource.createdBy === user.id",
+        ],
+        "resource": "post",
+      },
+      {
+        "action": "list",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('post_reader')",
+        ],
+        "resource": "post",
+      },
+    ],
+    "auditing": true,
+    "fields": [
+      {
+        "defaultValue": "cuid()",
+        "isId": true,
+        "name": "id",
+        "optional": false,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "uuid",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "title",
+        "optional": false,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "string",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "content",
+        "optional": true,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "text",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "authorId",
+        "optional": false,
+        "relationTarget": "User",
+        "relationType": "many-to-one",
+        "type": "uuid",
+        "unique": false,
+      },
+    ],
+    "name": "Post",
+    "relationships": [
+      {
+        "name": "author",
+        "optional": false,
+        "targetEntity": "User",
+        "type": "many-to-one",
+      },
+    ],
+    "softDelete": false,
+  },
+  {
+    "abacPolicies": [
+      {
+        "action": "create",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('comment_creator')",
+        ],
+        "resource": "comment",
+      },
+      {
+        "action": "read",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('comment_reader') || resource.createdBy === user.id",
+        ],
+        "resource": "comment",
+      },
+      {
+        "action": "update",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('comment_updater') || resource.createdBy === user.id",
+        ],
+        "resource": "comment",
+      },
+      {
+        "action": "delete",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('comment_deleter') || resource.createdBy === user.id",
+        ],
+        "resource": "comment",
+      },
+      {
+        "action": "list",
+        "conditions": [
+          "user.roles.includes('admin') || user.roles.includes('comment_reader')",
+        ],
+        "resource": "comment",
+      },
+    ],
+    "auditing": true,
+    "fields": [
+      {
+        "defaultValue": "cuid()",
+        "isId": true,
+        "name": "id",
+        "optional": false,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "uuid",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "content",
+        "optional": false,
+        "relationTarget": undefined,
+        "relationType": undefined,
+        "type": "text",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "postId",
+        "optional": false,
+        "relationTarget": "Post",
+        "relationType": "many-to-one",
+        "type": "uuid",
+        "unique": false,
+      },
+      {
+        "defaultValue": undefined,
+        "isId": false,
+        "name": "authorId",
+        "optional": false,
+        "relationTarget": "User",
+        "relationType": "many-to-one",
+        "type": "uuid",
+        "unique": false,
+      },
+    ],
+    "name": "Comment",
+    "relationships": [
+      {
+        "name": "post",
+        "optional": false,
+        "targetEntity": "Post",
+        "type": "many-to-one",
+      },
+      {
+        "name": "author",
+        "optional": false,
+        "targetEntity": "User",
+        "type": "many-to-one",
+      },
+    ],
+    "softDelete": false,
+  },
+]
+`;
+
+exports[`Snapshot Tests Generated File Content Snapshots should generate consistent DTO template 1`] = `
+"import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsString, IsOptional, MinLength, MaxLength } from 'class-validator';
+
+export class CreateUserDto {
+  @ApiProperty({ description: 'Email address', example: 'user@example.com' })
+  @IsEmail()
+  email: string;
+
+  @ApiProperty({ description: 'Full name', example: 'John Doe', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  name?: string;
+
+  @ApiProperty({ description: 'Password', example: 'password123', minLength: 8 })
+  @IsString()
+  @MinLength(8)
+  @MaxLength(100)
+  password: string;
+}"
+`;
+
+exports[`Snapshot Tests Generated File Content Snapshots should generate consistent controller template 1`] = `
+"import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  UseGuards,
+  HttpStatus,
+  HttpCode
+} from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import { UsersService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../auth/decorators/roles.decorator';
+
+@ApiTags('users')
+@Controller('users')
+@UseGuards(JwtAuthGuard, RolesGuard)
+@ApiBearerAuth()
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
+  @Post()
+  @Roles('admin')
+  @ApiOperation({ summary: 'Create a new user' })
+  @ApiResponse({ status: 201, description: 'The user has been successfully created.' })
+  @ApiResponse({ status: 400, description: 'Bad request.' })
+  @ApiResponse({ status: 401, description: 'Unauthorized.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
+  }
+
+  @Get()
+  @ApiOperation({ summary: 'Get all users' })
+  @ApiResponse({ status: 200, description: 'Return all users.' })
+  @ApiResponse({ status: 401, description: 'Unauthorized.' })
+  findAll(@Query() query: any) {
+    return this.usersService.findAll(query);
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get a user by id' })
+  @ApiResponse({ status: 200, description: 'Return the user.' })
+  @ApiResponse({ status: 404, description: 'User not found.' })
+  @ApiResponse({ status: 401, description: 'Unauthorized.' })
+  findOne(@Param('id') id: string) {
+    return this.usersService.findOne(id);
+  }
+
+  @Patch(':id')
+  @Roles('admin')
+  @ApiOperation({ summary: 'Update a user' })
+  @ApiResponse({ status: 200, description: 'The user has been successfully updated.' })
+  @ApiResponse({ status: 404, description: 'User not found.' })
+  @ApiResponse({ status: 401, description: 'Unauthorized.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    return this.usersService.update(id, updateUserDto);
+  }
+
+  @Delete(':id')
+  @Roles('admin')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @ApiOperation({ summary: 'Delete a user' })
+  @ApiResponse({ status: 204, description: 'The user has been successfully deleted.' })
+  @ApiResponse({ status: 404, description: 'User not found.' })
+  @ApiResponse({ status: 401, description: 'Unauthorized.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  remove(@Param('id') id: string) {
+    return this.usersService.remove(id);
+  }
+}"
+`;
+
+exports[`Snapshot Tests Generated File Content Snapshots should generate consistent service template 1`] = `
+"import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { UsersRepository } from './user.repository';
+import { User } from './entities/user.entity';
+
+@Injectable()
+export class UsersService {
+  constructor(private readonly usersRepository: UsersRepository) {}
+
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    // Check if user already exists
+    const existingUser = await this.usersRepository.findByEmail(createUserDto.email);
+    if (existingUser) {
+      throw new ConflictException('User with this email already exists');
+    }
+
+    return this.usersRepository.create(createUserDto);
+  }
+
+  async findAll(query: any): Promise<User[]> {
+    return this.usersRepository.findAll(query);
+  }
+
+  async findOne(id: string): Promise<User> {
+    const user = await this.usersRepository.findById(id);
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return user;
+  }
+
+  async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
+    const user = await this.findOne(id);
+    
+    // Check if email is being updated and if it already exists
+    if (updateUserDto.email && updateUserDto.email !== user.email) {
+      const existingUser = await this.usersRepository.findByEmail(updateUserDto.email);
+      if (existingUser) {
+        throw new ConflictException('User with this email already exists');
+      }
+    }
+
+    return this.usersRepository.update(id, updateUserDto);
+  }
+
+  async remove(id: string): Promise<void> {
+    const user = await this.findOne(id);
+    await this.usersRepository.delete(id);
+  }
+}"
+`;
+
+exports[`Snapshot Tests Prisma Model Generation Snapshots should generate Post model with relationships consistently 1`] = `Promise {}`;
+
+exports[`Snapshot Tests Prisma Model Generation Snapshots should generate User model consistently 1`] = `Promise {}`;
+
+exports[`Snapshot Tests Template Rendering Snapshots should generate consistent Dockerfile template 1`] = `
+"# Use the official Node.js runtime as the base image
+FROM node:18-alpine AS builder
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY prisma ./prisma/
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Copy source code
+COPY . .
+
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine AS production
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Create app user
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nestjs -u 1001
+
+# Set the working directory
+WORKDIR /app
+
+# Copy built application from builder stage
+COPY --from=builder --chown=nestjs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nestjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nestjs:nodejs /app/package*.json ./
+COPY --from=builder --chown=nestjs:nodejs /app/prisma ./prisma
+
+# Switch to non-root user
+USER nestjs
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \\
+  CMD node dist/health-check.js
+
+# Start the application
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "dist/main"]"
+`;
+
+exports[`Snapshot Tests Template Rendering Snapshots should generate consistent Prisma schema template 1`] = `
+"// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String?
+  name      String?
+  avatar    String?
+  provider  String   @default("local")
+  providerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  // Relations
+  posts Post[]
+
+  @@map("users")
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  title       String
+  content     String?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  authorId    String
+  author      User      @relation(fields: [authorId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  @@map("posts")
+}
+
+model EmailTemplate {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  subject   String
+  body      String
+  variables Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("email_templates")
+}
+
+model FileUpload {
+  id          String   @id @default(cuid())
+  filename    String
+  originalName String
+  mimeType    String
+  size        Int
+  path        String
+  url         String?
+  uploadedBy  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("file_uploads")
+}"
+`;
+
+exports[`Snapshot Tests Template Rendering Snapshots should generate consistent docker-compose template 1`] = `
+"version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/test-project
+      - JWT_SECRET=your-jwt-secret
+      - JWT_EXPIRES_IN=1d
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=test-project
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge"
+`;
+
+exports[`Snapshot Tests Template Rendering Snapshots should generate consistent package.json template 1`] = `
+"{
+  "name": "test-project",
+  "description": "Test project",
+  "author": "Test Author",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write "src/**/*.ts" "test/**/*.ts"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint "{src,apps,libs,test}/**/*.ts" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/config": "^3.0.0",
+    "@nestjs/jwt": "^10.0.0",
+    "@nestjs/passport": "^10.0.0",
+    "@nestjs/swagger": "^7.0.0",
+    "@nestjs/terminus": "^10.0.0",
+    "@prisma/client": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "helmet": "^7.0.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-microsoft": "^0.1.0",
+    "passport-openidconnect": "^0.1.2",
+    "prisma": "^5.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@nestjs/schematics": "^10.0.0",
+    "@nestjs/testing": "^10.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
+    "@types/passport-jwt": "^3.0.8",
+    "@types/passport-google-oauth20": "^2.0.11",
+    "@types/passport-github2": "^0.1.4",
+    "@types/passport-microsoft": "^0.1.1",
+    "@types/passport-openidconnect": "^0.1.1",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "source-map-support": "^0.5.21",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.1",
+    "typescript": "^5.1.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}"
+`;

@@ -11,6 +11,10 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
+            moduleNameMapper: {
+            '^change-case$': '<rootDir>/src/__mocks__/change-case.ts',
+            '^inquirer$': '<rootDir>/src/__mocks__/inquirer.ts'
+          },
   collectCoverageFrom: [
     'src/**/*.ts',
     '!src/**/*.d.ts',
