@@ -72,13 +72,13 @@ Phase 1 delivers **CLI only**. A GUI can follow later.
 ### **CLI UX — Commands and Flow**
 
 #### Commands
-* `nxg init` — generate a new project
-* `nxg add crud` — generate CRUD for entities
-* `nxg add auth` — enable selected auth providers after init
-* `nxg add service` — scaffold optional services (mail, cache, storage, notifications, payments, search)
-* `nxg doctor` — validate env, database connectivity, pending migrations
+* `backend-generator init` — generate a new project
+* `backend-generator add crud` — generate CRUD for entities
+* `backend-generator add auth` — enable selected auth providers after init
+* `backend-generator add service` — scaffold optional services (mail, cache, storage, notifications, payments, search)
+* `backend-generator doctor` — validate env, database connectivity, pending migrations
 
-#### `nxg init` Prompt Flow (exact order)
+#### `backend-generator init` Prompt Flow (exact order)
 1. **Project name** (kebab-case)
 2. **API base path** (default `/api`)
 3. **Default API version** (default `v1`)
@@ -184,7 +184,7 @@ All original requirements have been implemented with production-ready code.
 
 ## 🚀 **Available Commands**
 
-### `nxg init`
+### `backend-generator init`
 **Fully implemented** - Creates complete NestJS projects
 - Interactive project configuration
 - Template copying with dynamic content
@@ -193,7 +193,7 @@ All original requirements have been implemented with production-ready code.
 - Prisma setup and migration
 - Code formatting
 
-### `nxg add crud`
+### `backend-generator add crud`
 **Fully implemented** - Generates CRUD operations
 - Interactive entity definition
 - DSL parsing for complex entities
@@ -202,7 +202,7 @@ All original requirements have been implemented with production-ready code.
 - Test file generation
 - Database migration handling
 
-### `nxg add auth`
+### `backend-generator add auth`
 **Fully implemented** - Enables authentication providers
 - Interactive provider selection
 - Strategy generation for each provider
@@ -210,7 +210,7 @@ All original requirements have been implemented with production-ready code.
 - Environment variable configuration
 - OAuth2 setup
 
-### `nxg add service`
+### `backend-generator add service`
 **Fully implemented** - Scaffolds optional services
 - Interactive service selection
 - Complete module generation
@@ -218,7 +218,7 @@ All original requirements have been implemented with production-ready code.
 - Environment variable setup
 - Integration with main app
 
-### `nxg doctor`
+### `backend-generator doctor`
 **Fully implemented** - Validates project setup
 - Node.js version checking
 - NestJS project detection

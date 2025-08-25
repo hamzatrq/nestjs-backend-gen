@@ -1,10 +1,10 @@
 {
-  "name": "nestjs-generator",
+  "name": "@hamzatrq/backend-gen",
   "version": "1.0.0",
   "description": "CLI Generator for Production-Grade NestJS Monoliths",
   "main": "dist/index.js",
   "bin": {
-    "nxg": "./dist/index.js"
+    "backend-generator": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -26,8 +26,19 @@
     "prisma",
     "postgresql"
   ],
-  "author": "Your Name",
+  "author": "hamzatrq",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hamzatrq/nestjs-backend-gen"
+  },
+  "homepage": "https://github.com/hamzatrq/nestjs-backend-gen#readme",
+  "bugs": {
+    "url": "https://github.com/hamzatrq/nestjs-backend-gen/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@oclif/core": "^2.15.0",
     "@oclif/plugin-help": "^5.2.19",
@@ -60,7 +71,7 @@
     "templates"
   ],
   "oclif": {
-    "bin": "nxg",
+    "bin": "backend-generator",
     "dirname": "dist",
     "plugins": [
       "@oclif/plugin-help"

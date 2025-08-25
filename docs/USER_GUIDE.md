@@ -5,7 +5,7 @@ Get up and running with the NestJS Generator CLI in minutes!
 ## 🚀 Installation
 
 ```bash
-npm install -g nestjs-generator
+npm install -g @hamzatrq/backend-gen
 ```
 
 ## 🎯 Generate Your First Project
@@ -13,7 +13,7 @@ npm install -g nestjs-generator
 ### Interactive Mode (Recommended)
 
 ```bash
-nxg init
+backend-generator init
 ```
 
 This will guide you through:
@@ -26,7 +26,7 @@ This will guide you through:
 ### Non-Interactive Mode
 
 ```bash
-nxg init --name my-awesome-api --api-base /api --api-version v1
+backend-generator init --name my-awesome-api --api-base /api --api-version v1
 ```
 
 ## 📝 Add CRUD Operations
@@ -34,7 +34,7 @@ nxg init --name my-awesome-api --api-base /api --api-version v1
 ### Interactive DSL Editor
 
 ```bash
-nxg add crud
+backend-generator add crud
 ```
 
 This opens an editor where you can define entities using our DSL:
@@ -58,19 +58,19 @@ publishedAt:datetime?
 ### With Entity Name
 
 ```bash
-nxg add crud --entity User
+backend-generator add crud --entity User
 ```
 
 ### With Specification File
 
 ```bash
-nxg add crud --spec entities.json
+backend-generator add crud --spec entities.json
 ```
 
 ## 🔐 Enable Authentication
 
 ```bash
-nxg add auth
+backend-generator add auth
 ```
 
 Select from available providers:
@@ -84,7 +84,7 @@ Select from available providers:
 ## 🔧 Add Optional Services
 
 ```bash
-nxg add service
+backend-generator add service
 ```
 
 Available services:
@@ -98,7 +98,7 @@ Available services:
 ## 🏥 Validate Your Setup
 
 ```bash
-nxg doctor
+backend-generator doctor
 ```
 
 This checks:
@@ -153,7 +153,7 @@ npm run test:cov
 
 1. **Review Generated Code**: Explore the generated project structure
 2. **Configure Environment**: Update `.env` with your settings
-3. **Add More Entities**: Use `nxg add crud` for additional CRUD operations
+3. **Add More Entities**: Use `backend-generator add crud` for additional CRUD operations
 4. **Customize Authentication**: Configure OAuth providers in `.env`
 5. **Deploy**: Use the included Docker setup for deployment
 

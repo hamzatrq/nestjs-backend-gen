@@ -1,4 +1,4 @@
-# NestJS Generator CLI
+# Backend Generator CLI
 
 A powerful CLI tool for generating production-ready NestJS applications with best practices, security, and scalability built-in.
 
@@ -20,7 +20,7 @@ A powerful CLI tool for generating production-ready NestJS applications with bes
 ## 📦 Installation
 
 ```bash
-npm install -g nestjs-generator
+npm install -g @hamzatrq/backend-gen
 ```
 
 ## 🎯 Quick Start
@@ -29,54 +29,54 @@ npm install -g nestjs-generator
 
 ```bash
 # Interactive mode
-nxg init
+backend-generator init
 
 # Non-interactive mode
-nxg init --name my-app --api-base /api --api-version v1
+backend-generator init --name my-app --api-base /api --api-version v1
 ```
 
 ### Add CRUD operations
 
 ```bash
 # Interactive mode
-nxg add crud
+backend-generator add crud
 
 # With entity name
-nxg add crud --entity User
+backend-generator add crud --entity User
 
 # With specification file
-nxg add crud --spec entities.json
+backend-generator add crud --spec entities.json
 ```
 
 ### Enable authentication providers
 
 ```bash
 # Interactive mode
-nxg add auth
+backend-generator add auth
 
 # Specific providers
-nxg add auth --provider google,microsoft,github
+backend-generator add auth --provider google,microsoft,github
 ```
 
 ### Add optional services
 
 ```bash
 # Interactive mode
-nxg add service
+backend-generator add service
 
 # Specific services
-nxg add service --service email,cache,storage
+backend-generator add service --service email,cache,storage
 ```
 
 ### Validate project setup
 
 ```bash
-nxg doctor
+backend-generator doctor
 ```
 
 ## 📋 Commands
 
-### `nxg init`
+### `backend-generator init`
 
 Generate a new NestJS project with all configurations.
 
@@ -89,12 +89,12 @@ Generate a new NestJS project with all configurations.
 
 **Examples:**
 ```bash
-nxg init
-nxg init --name my-app --api-base /api/v1
-nxg init --name my-app --skip-install
+backend-generator init
+backend-generator init --name my-app --api-base /api/v1
+backend-generator init --name my-app --skip-install
 ```
 
-### `nxg add crud`
+### `backend-generator add crud`
 
 Generate CRUD operations for entities using DSL.
 
@@ -105,12 +105,12 @@ Generate CRUD operations for entities using DSL.
 
 **Examples:**
 ```bash
-nxg add crud
-nxg add crud --entity User
-nxg add crud --spec entities.json
+backend-generator add crud
+backend-generator add crud --entity User
+backend-generator add crud --spec entities.json
 ```
 
-### `nxg add auth`
+### `backend-generator add auth`
 
 Enable authentication providers.
 
@@ -119,11 +119,11 @@ Enable authentication providers.
 
 **Examples:**
 ```bash
-nxg add auth
-nxg add auth --provider google,microsoft,github
+backend-generator add auth
+backend-generator add auth --provider google,microsoft,github
 ```
 
-### `nxg add service`
+### `backend-generator add service`
 
 Scaffold optional services.
 
@@ -132,17 +132,17 @@ Scaffold optional services.
 
 **Examples:**
 ```bash
-nxg add service
-nxg add service --service email,cache,storage
+backend-generator add service
+backend-generator add service --service email,cache,storage
 ```
 
-### `nxg doctor`
+### `backend-generator doctor`
 
 Validate project setup and environment.
 
 **Examples:**
 ```bash
-nxg doctor
+backend-generator doctor
 ```
 
 ## 🏗️ Generated Project Structure
@@ -335,7 +335,7 @@ S3_SECRET_ACCESS_KEY=
 
 1. **Generate a new project:**
    ```bash
-   nxg init
+   backend-generator init
    ```
 
 2. **Navigate to the project:**
@@ -427,6 +427,11 @@ docker compose down
 ## 📄 License
 
 MIT License - see LICENSE file for details.
+
+## 🔗 Links
+
+- **GitHub Repository**: [https://github.com/hamzatrq/nestjs-backend-gen](https://github.com/hamzatrq/nestjs-backend-gen)
+- **NPM Package**: [https://www.npmjs.com/package/@hamzatrq/backend-gen](https://www.npmjs.com/package/@hamzatrq/backend-gen)
 
 ## 🆘 Support
 
