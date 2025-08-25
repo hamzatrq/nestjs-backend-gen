@@ -39,38 +39,41 @@ describe('AddCrud Command Integration Tests', () => {
     (mockTemplateCopier.createFile as jest.Mock).mockResolvedValue(undefined);
     (mockTemplateCopier.appendToFile as jest.Mock).mockResolvedValue(undefined);
     
-    // Mock DslParser methods
-    (mockDslParser.parseEntityDsl as jest.Mock).mockReturnValue({
-      name: 'User',
-      fields: [
-        {
-          name: 'id',
-          type: 'uuid',
-          optional: false,
-          unique: false,
-          isId: true,
-          defaultValue: 'cuid()'
-        },
-        {
-          name: 'email',
-          type: 'string',
-          optional: false,
-          unique: true,
-          isId: false
-        },
-        {
-          name: 'name',
-          type: 'string',
-          optional: true,
-          unique: false,
-          isId: false
-        }
-      ],
-      relationships: [],
-      softDelete: false,
-      auditing: true,
-      abacPolicies: []
-    });
+                // Mock DslParser methods
+            (mockDslParser.parseEntityDsl as jest.Mock).mockReturnValue({
+              name: 'User',
+              fields: [
+                {
+                  name: 'id',
+                  type: 'uuid',
+                  optional: false,
+                  unique: false,
+                  isId: true,
+                  defaultValue: 'cuid()'
+                },
+                {
+                  name: 'email',
+                  type: 'string',
+                  optional: false,
+                  unique: true,
+                  isId: false
+                },
+                {
+                  name: 'name',
+                  type: 'string',
+                  optional: true,
+                  unique: false,
+                  isId: false
+                }
+              ],
+              relationships: [],
+              softDelete: false,
+              auditing: true,
+              abacPolicies: []
+            });
+
+            // Mock validateEntity to return no errors
+            (mockDslParser.validateEntity as jest.Mock).mockReturnValue([]);
     
     // Mock CrudGenerator methods
     // (mockCrudGenerator.generateCrud as jest.Mock).mockResolvedValue();
@@ -93,7 +96,7 @@ createdAt:datetime@default(now())
 updatedAt:datetime@default(now())`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -113,7 +116,7 @@ updatedAt:datetime@default(now())`;
 invalid-field-format`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: invalidDsl,
         generateTests: true,
         generateDocs: true
@@ -133,7 +136,7 @@ email:string@unique
 name:string?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -172,7 +175,7 @@ email:string@unique
 name:string?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -193,7 +196,7 @@ authorId:uuid@relation(User,many-to-one)
 publishedAt:datetime?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -260,7 +263,7 @@ name:string?
 deletedAt:datetime?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -321,7 +324,7 @@ email:string@unique
 name:string?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: false
@@ -340,7 +343,7 @@ email:string@unique
 name:string?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: false,
@@ -362,7 +365,7 @@ email:string@unique
 name:string?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: false,
         generateDocs: true
@@ -381,7 +384,7 @@ email:string@unique
 name:string?`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: false,
         generateDocs: true,
@@ -402,7 +405,7 @@ id:uuid@id@default(cuid())
 email:string@unique`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -422,7 +425,7 @@ id:uuid@id@default(cuid())
 email:string@unique`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -442,7 +445,7 @@ id:uuid@id@default(cuid())
 email:string@unique`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -460,7 +463,7 @@ id:uuid@id@default(cuid())
 email:string@unique`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true
@@ -485,7 +488,7 @@ title:string
 authorId:uuid@relation(User,many-to-one)`;
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue({
+      (inquirer.prompt as jest.Mock).mockResolvedValue({
         dsl: dsl,
         generateTests: true,
         generateDocs: true

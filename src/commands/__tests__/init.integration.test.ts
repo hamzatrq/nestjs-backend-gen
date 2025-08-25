@@ -47,22 +47,25 @@ describe('Init Command Integration Tests', () => {
     it('should create complete project structure with all directories', async () => {
       const answers = {
         projectName: 'test-project',
-        description: 'Test project',
-        author: 'Test Author',
-        version: '1.0.0',
-        database: 'postgresql',
-        authentication: ['jwt', 'google'],
-        services: ['email', 'file-storage'],
-        security: ['helmet', 'cors', 'rate-limiting'],
-        testing: ['unit', 'integration', 'e2e'],
-        docker: true,
-        githubActions: true,
-        sentry: true
+        apiBase: '/api',
+        apiVersion: 'v1',
+        securityFeatures: ['helmet', 'cors', 'rate-limiting'],
+        complianceNeeds: [],
+        authProviders: [
+          { name: 'jwt', enabled: true, description: 'JWT authentication' },
+          { name: 'google', enabled: true, description: 'Google OAuth' }
+        ],
+        enableSentry: true,
+        enableGitHubActions: true,
+        optionalServices: [
+          { name: 'email', enabled: true, description: 'Email service' },
+          { name: 'file-storage', enabled: true, description: 'File storage service' }
+        ]
       };
 
       // Mock inquirer to return our test answers
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -98,7 +101,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -134,7 +137,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -168,7 +171,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -199,7 +202,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -234,7 +237,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -267,7 +270,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -296,7 +299,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -332,7 +335,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -361,7 +364,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       await initCommand.run();
 
@@ -397,7 +400,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       // Mock fs.mkdirpSync to throw an error
       mockFs.mkdirpSync.mockImplementation(() => {
@@ -424,7 +427,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       // Mock TemplateCopier.copyTemplate to throw an error
       (mockTemplateCopier.copyTemplate as jest.Mock).mockRejectedValue(new Error('Template not found'));
@@ -451,7 +454,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       // The command should handle invalid project names
       await initCommand.run();
@@ -479,7 +482,7 @@ describe('Init Command Integration Tests', () => {
       };
 
       const inquirer = require('inquirer');
-      inquirer.prompt.mockResolvedValue(answers);
+      (inquirer.prompt as jest.Mock).mockResolvedValue(answers);
 
       // The command should handle empty authentication array
       await initCommand.run();

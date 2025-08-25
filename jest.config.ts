@@ -13,7 +13,10 @@ const config: Config.InitialOptions = {
   },
             moduleNameMapper: {
             '^change-case$': '<rootDir>/src/__mocks__/change-case.ts',
-            '^inquirer$': '<rootDir>/src/__mocks__/inquirer.ts'
+            '^inquirer$': '<rootDir>/src/__mocks__/inquirer.ts',
+            '^chalk$': '<rootDir>/src/__mocks__/chalk.ts',
+            '^execa$': '<rootDir>/src/__mocks__/execa.ts',
+            '^ora$': '<rootDir>/src/__mocks__/ora.ts'
           },
   collectCoverageFrom: [
     'src/**/*.ts',
