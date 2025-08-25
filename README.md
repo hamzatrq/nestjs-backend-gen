@@ -404,11 +404,15 @@ docker compose down
 
 ## 📚 Documentation
 
-- **[📖 Documentation Index](./docs/README.md)** - Complete documentation overview
-- **[🚀 Implementation Summary](./docs/IMPLEMENTATION_SUMMARY.md)** - What has been implemented
-- **[📋 Original Instructions](./docs/instructions.md)** - Project specification and requirements
-- **[🧪 Test Summary](./docs/TEST_SUMMARY.md)** - Test suite status and coverage
-- **[🏗️ Architecture Guide](./docs/ARCHITECTURE.md)** - Technical architecture and design decisions
+### 🚀 Getting Started
+- **[User Guide](./docs/USER_GUIDE.md)** - Get up and running in minutes
+- **[Project Specification](./docs/PROJECT_SPECIFICATION.md)** - Original requirements and implementation status
+- **[Testing Status](./docs/TESTING_STATUS.md)** - Comprehensive test suite status and coverage
+
+### 🏗️ Architecture & Development
+- **[Technical Architecture](./docs/TECHNICAL_ARCHITECTURE.md)** - Technical architecture and design decisions
+
+### 📋 Additional Documentation
 - **API Documentation**: Auto-generated Swagger/OpenAPI v3 docs in generated projects
 - **Code Documentation**: TSDoc comments throughout the codebase
 

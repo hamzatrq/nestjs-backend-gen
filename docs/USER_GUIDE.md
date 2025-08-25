@@ -159,10 +159,9 @@ npm run test:cov
 
 ## 🆘 Need Help?
 
-- **[📖 Documentation Index](./README.md)** - Complete documentation overview
-- **[🚀 Implementation Summary](./IMPLEMENTATION_SUMMARY.md)** - What has been implemented
-- **[📋 Original Instructions](./instructions.md)** - Project specification
-- **[🧪 Test Summary](./TEST_SUMMARY.md)** - Test suite status
+- **[Project Specification](./PROJECT_SPECIFICATION.md)** - Original requirements and implementation status
+- **[Technical Architecture](./TECHNICAL_ARCHITECTURE.md)** - Technical architecture and design decisions
+- **[Testing Status](./TESTING_STATUS.md)** - Test suite status and coverage
 
 ---
 
